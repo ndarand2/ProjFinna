@@ -4,7 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#0099cc"
-    tools:context=".SetTime">
+    android:visibility="visible"
+    tools:context=".SetTime"
+    tools:visibility="visible">
 
     <!-- The primary full-screen view. This can be replaced with whatever view
          is needed to present your content, e.g. VideoView, SurfaceView,
@@ -17,14 +19,18 @@
         android:keepScreenOn="true"
         android:textColor="#33b5e5"
         android:textSize="50sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:visibility="visible"
+        tools:visibility="visible" />
 
     <!-- This FrameLayout insets its children based on system windows using
          android:fitsSystemWindows. -->
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fitsSystemWindows="true">
+        android:fitsSystemWindows="true"
+        android:visibility="visible"
+        tools:visibility="visible">
 
         <LinearLayout
             android:id="@+id/fullscreen_content_controls"
@@ -34,32 +40,31 @@
             android:layout_gravity="center_horizontal|top"
             android:background="@color/black_overlay"
             android:orientation="vertical"
-            tools:ignore="UselessParent">
+            android:visibility="visible"
+            tools:ignore="UselessParent"
+            tools:visibility="visible">
 
 
-            <LinearLayout
+            <TextView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_height="75dp"
+                android:text="Your Alarms"
+                android:textAlignment="center"
+                android:textSize="50dp"
+                android:visibility="visible"
+                tools:visibility="visible" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="75dp"
-                    android:text="Your Alarms"
-                    android:textAlignment="center"
-                    android:textSize="50dp" />
-
-                <EditText
-                    android:id="@+id/editText"
-                    android:layout_width="match_parent"
-                    android:layout_height="75dp"
-                    android:ems="10"
-                    android:inputType="time"
-                    android:text="00:00:00"
-                    android:textAlignment="center"
-                    android:textSize="50dp"
-                    tools:visibility="visible" />
-            </LinearLayout>
+            <EditText
+                android:id="@+id/editText"
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:ems="10"
+                android:hint="00:00:00"
+                android:inputType="time"
+                android:textAlignment="center"
+                android:textSize="50dp"
+                android:visibility="visible"
+                tools:visibility="visible" />
         </LinearLayout>
 
     </FrameLayout>
