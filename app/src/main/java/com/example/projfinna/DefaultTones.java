@@ -106,6 +106,46 @@ public class DefaultTones extends AppCompatActivity {
         // operations to prevent the jarring behavior of controls going away
         // while interacting with the UI.
         findViewById(R.id.dummy_button).setOnTouchListener(mDelayHideTouchListener);
+        findViewById(R.id.Tone1).setOnTouchListener(mDelayHideTouchListener);
+        findViewById(R.id.Tone2).setOnTouchListener(mDelayHideTouchListener);
+        findViewById(R.id.Tone3).setOnTouchListener(mDelayHideTouchListener);
+        findViewById(R.id.Tone4).setOnTouchListener(mDelayHideTouchListener);
+        setUpButtons();
+    }
+
+    private void setUpButtons() {
+        android.widget.Button tone1 = findViewById(R.id.Tone1);
+        tone1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FullscreenActivity.TONE = 1;
+                finish();
+            }
+        });
+        android.widget.Button tone2 = findViewById(R.id.Tone2);
+        tone2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FullscreenActivity.TONE = 2;
+                finish();
+            }
+        });
+        android.widget.Button tone3 = findViewById(R.id.Tone3);
+        tone3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FullscreenActivity.TONE = 3;
+                finish();
+            }
+        });
+        android.widget.Button tone4 = findViewById(R.id.Tone4);
+        tone4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FullscreenActivity.TONE = 4;
+                finish();
+            }
+        });
     }
 
     @Override

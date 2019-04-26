@@ -46,6 +46,38 @@
                 android:text="@string/dummy_button" />
 
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/Tone1"
+                android:layout_width="match_parent"
+                android:layout_height="107dp"
+                android:text="Button" />
+
+            <Button
+                android:id="@+id/Tone2"
+                android:layout_width="match_parent"
+                android:layout_height="107dp"
+                android:text="Button" />
+
+            <Button
+                android:id="@+id/Tone3"
+                android:layout_width="match_parent"
+                android:layout_height="107dp"
+                android:text="Button" />
+
+            <Button
+                android:id="@+id/Tone4"
+                android:layout_width="match_parent"
+                android:layout_height="107dp"
+                android:text="Button" />
+
+        </LinearLayout>
+
     </FrameLayout>
 
 </FrameLayout>
