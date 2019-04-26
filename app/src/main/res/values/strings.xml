@@ -18,4 +18,6 @@
     </string>
 
     <string name="title_activity_default_tones">Pick a Tone</string>
+
+    <string name="title_activity_set_time">Set the time</string>
 </resources>
