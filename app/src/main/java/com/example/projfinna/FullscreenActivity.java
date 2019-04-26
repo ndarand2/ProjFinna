@@ -109,6 +109,7 @@ public class FullscreenActivity extends AppCompatActivity {
         findViewById(R.id.SpotifyButton).setOnTouchListener(mDelayHideTouchListener);
         findViewById(R.id.ToneButton).setOnTouchListener(mDelayHideTouchListener);
         setUpButtons();
+        //to push comment
     }
 
     private void setUpButtons() {
