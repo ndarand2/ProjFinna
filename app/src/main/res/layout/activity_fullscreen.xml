@@ -59,6 +59,8 @@
                 android:format12Hour="hh: mm: ss: a"
                 android:textColor="#000000"
                 android:visibility="visible"
+                android:textSize="48dp"
+                android:textAlignment="center"
                 tools:text="@tools:sample/date/hhmmss"
                 tools:visibility="visible" />
 
