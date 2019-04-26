@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.AnalogClock;
+import android.widget.TextClock;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -127,6 +129,20 @@ public class FullscreenActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new android.content.Intent(FullscreenActivity.this, DefaultTones.class));
+            }
+        });
+        TextClock clock = findViewById(R.id.textClock);
+        clock.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new android.content.Intent(FullscreenActivity.this, SetTime.class ));
+            }
+        });
+        AnalogClock clock2 = findViewById(R.id.simpleAnalogClock);
+        clock2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new android.content.Intent(FullscreenActivity.this, SetTime.class ));
             }
         });
     }
