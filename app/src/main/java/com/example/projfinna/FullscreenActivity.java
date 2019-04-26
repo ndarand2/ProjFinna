@@ -149,6 +149,7 @@ public class FullscreenActivity extends AppCompatActivity {
         MediaPlayer mediaPlayer1 = MediaPlayer.create(getBaseContext(), R.raw.tycho);
         MediaPlayer mediaPlayer2 = MediaPlayer.create(getBaseContext(), R.raw.tornado);
         MediaPlayer mediaPlayer3 = MediaPlayer.create(getBaseContext(), R.raw.train);
+        MediaPlayer mediaPlayer4 = MediaPlayer.create(getBaseContext(), R.raw.jeff);
         mediaPlayer1.start();
         //comment bs
     }
