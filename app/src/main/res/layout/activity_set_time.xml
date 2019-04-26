@@ -31,24 +31,29 @@
             style="?metaButtonBarStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center_horizontal"
+            android:layout_gravity="center_horizontal|top"
             android:background="@color/black_overlay"
-            android:orientation="horizontal"
+            android:orientation="vertical"
             tools:ignore="UselessParent">
 
 
-        </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:text="Your Alarms"
+                android:textAlignment="center"
+                android:textSize="50dp" />
 
-        <EditText
-            android:id="@+id/editText"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:ems="10"
-            android:inputType="time"
-            android:textAlignment="center"
-            android:textSize="50dp"
-            tools:text="@tools:sample/date/hhmmss"
-            tools:visibility="visible" />
+            <EditText
+                android:id="@+id/editText"
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:ems="10"
+                android:text="00:00:00"
+                android:textAlignment="center"
+                android:textSize="50dp"
+                tools:visibility="visible" />
+        </LinearLayout>
 
     </FrameLayout>
 
