@@ -9,6 +9,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AnalogClock;
 import android.widget.TextClock;
+import android.media.MediaPlayer;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -146,6 +147,9 @@ public class FullscreenActivity extends AppCompatActivity {
                 startActivity(new android.content.Intent(FullscreenActivity.this, SetTime.class ));
             }
         });
+        MediaPlayer mediaPlayer1 = MediaPlayer.create(getBaseContext(), R.raw.tycho);
+        MediaPlayer mediaPlayer2 = MediaPlayer.create(getBaseContext(), R.raw.tornado);
+        MediaPlayer mediaPlayer3 = MediaPlayer.create(getBaseContext(), R.raw.train);
     }
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
