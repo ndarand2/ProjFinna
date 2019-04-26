@@ -48,25 +48,25 @@
                 android:id="@+id/Tone1"
                 android:layout_width="match_parent"
                 android:layout_height="107dp"
-                android:text="Button" />
+                android:text="Tycho - Awake" />
 
             <Button
                 android:id="@+id/Tone2"
                 android:layout_width="match_parent"
                 android:layout_height="107dp"
-                android:text="Button" />
+                android:text="Train" />
 
             <Button
                 android:id="@+id/Tone3"
                 android:layout_width="match_parent"
                 android:layout_height="107dp"
-                android:text="Button" />
+                android:text="Tornado Siren" />
 
             <Button
                 android:id="@+id/Tone4"
                 android:layout_width="match_parent"
                 android:layout_height="107dp"
-                android:text="Button" />
+                android:text="Hi, Jeff Challen Here..." />
 
         </LinearLayout>
 
