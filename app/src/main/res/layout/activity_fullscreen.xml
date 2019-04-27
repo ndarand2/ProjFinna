@@ -48,12 +48,12 @@
                 android:id="@+id/textClock"
                 android:layout_width="match_parent"
                 android:layout_height="75dp"
-                android:format24Hour="hh: mm: ss: a"
-                android:textColor="#000000"
-                android:visibility="visible"
-                android:textSize="48dp"
+                android:format24Hour="hh: mm a"
                 android:textAlignment="center"
-                tools:text="@tools:sample/date/hhmmss"
+                android:textColor="#000000"
+                android:textSize="48dp"
+                android:visibility="visible"
+                tools:text="@tools:sample/date/hhmm"
                 tools:visibility="visible" />
 
             <AnalogClock
