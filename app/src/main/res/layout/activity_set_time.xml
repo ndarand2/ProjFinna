@@ -49,7 +49,7 @@
                 android:id="@+id/alarmTime"
                 android:layout_width="match_parent"
                 android:layout_height="75dp"
-                android:text="00:00:00"
+                android:text="00:00"
                 android:textAlignment="center"
                 android:textSize="50dp"
                 android:visibility="visible"
