@@ -155,14 +155,13 @@ public class FullscreenActivity extends AppCompatActivity {
         MediaPlayer mediaPlayer3 = MediaPlayer.create(getBaseContext(), R.raw.train);
         MediaPlayer mediaPlayer4 = MediaPlayer.create(getBaseContext(), R.raw.jeff);
         //mediaPlayer1.start();
-        //comment bs2
+        //comment bs2.
     }
     public void onPause()
     {
         super.onPause();
         android.content.SharedPreferences preferences = getSharedPreferences("sharedPrefs", 0);
         android.content.SharedPreferences.Editor pref = preferences.edit();
-        pref.putString("CLASSLABEL", this.getLocalClassName()); // value to store
         pref.putString("ALARMTIME", ALARMTIME);
         pref.putInt("ALARMTYPE", TONE);
         if (SPOTIFYSONG != null) {
