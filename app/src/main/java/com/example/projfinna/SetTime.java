@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
+import android.app.Dialog;
+import android.app.TimePickerDialog;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
