@@ -25,6 +25,10 @@ public class FullscreenActivity extends AppCompatActivity {
      * 0 if its spotify.
      */
     public static int TONE = 0;
+    /**AlarmTime.*/
+    public static String ALARMTIME;
+    /**Spotify thingy.*/
+    public static String SPOTIFYSONG;
     /**
      * If {@link #AUTO_HIDE} is set, the number of milliseconds to wait after
      * user interaction before hiding the system UI.
@@ -149,8 +153,22 @@ public class FullscreenActivity extends AppCompatActivity {
         MediaPlayer mediaPlayer1 = MediaPlayer.create(getBaseContext(), R.raw.tycho);
         MediaPlayer mediaPlayer2 = MediaPlayer.create(getBaseContext(), R.raw.tornado);
         MediaPlayer mediaPlayer3 = MediaPlayer.create(getBaseContext(), R.raw.train);
+        MediaPlayer mediaPlayer4 = MediaPlayer.create(getBaseContext(), R.raw.jeff);
         //mediaPlayer1.start();
-        //comment bs
+        //comment bs2.
+    }
+    public void onPause()
+    {
+        super.onPause();
+        android.content.SharedPreferences preferences = getSharedPreferences("sharedPrefs", 0);
+        android.content.SharedPreferences.Editor pref = preferences.edit();
+        pref.putString("ALARMTIME", ALARMTIME);
+        pref.putInt("ALARMTYPE", TONE);
+        if (SPOTIFYSONG != null) {
+            pref.putString("SPOTIFYSONG", SPOTIFYSONG);
+        }
+        // Commit to storage
+        pref.commit();
     }
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
