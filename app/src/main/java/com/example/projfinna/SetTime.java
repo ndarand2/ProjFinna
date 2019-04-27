@@ -14,6 +14,8 @@ import android.app.TimePickerDialog;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.Calendar;
+
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -37,7 +39,13 @@ public class SetTime extends AppCompatActivity implements TimePickerDialog.OnTim
 
     @Override
     public void onTimeSet(android.widget.TimePicker view, int hourOfDay, int minute) {
+        int hour = hourOfDay;
+        String amOrpm = "AM";
+        if (hour > 12) {
+            hour = hour % 12;
+            amOrpm = "PM";
+        }
         TextView textView = (TextView)findViewById(R.id.alarmTime);
-        textView.setText(hourOfDay + ":" + minute);
+        textView.setText(hour + ":" + minute + " " + amOrpm);
     }
 }
