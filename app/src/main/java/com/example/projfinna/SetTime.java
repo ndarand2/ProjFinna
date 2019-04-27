@@ -42,8 +42,10 @@ public class SetTime extends AppCompatActivity implements TimePickerDialog.OnTim
         int hour = hourOfDay;
         String amOrpm = "AM";
         if (hour >= 12) {
-            hour = hour % 12;
             amOrpm = "PM";
+            if (amOrpm.equals("PM")) {
+                hour = hour - 12;
+            }
         }
         TextView textView = (TextView)findViewById(R.id.alarmTime);
         textView.setText(hour + ":" + minute + " " + amOrpm);
