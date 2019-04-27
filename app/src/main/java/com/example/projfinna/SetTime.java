@@ -22,6 +22,9 @@ import java.util.Calendar;
  * status bar and navigation/system bar) with user interaction.
  */
 public class SetTime extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener {
+
+    public String alarmTime = " ";
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,10 +50,9 @@ public class SetTime extends AppCompatActivity implements TimePickerDialog.OnTim
             hour = hour % 12;
         }
         String amOrpm = "AM";
-        if (Calendar.AM == 0) {
-            amOrpm = "PM";
-        }
+        alarmTime = hour + ":" + minute + " " + amOrpm;
         TextView textView = (TextView)findViewById(R.id.alarmTime);
-        textView.setText(hour + ":" + minute + " " + amOrpm);
+        textView.setText(alarmTime);
     }
+
 }
