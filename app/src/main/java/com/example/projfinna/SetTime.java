@@ -41,13 +41,7 @@ public class SetTime extends AppCompatActivity implements TimePickerDialog.OnTim
     public void onTimeSet(android.widget.TimePicker view, int hourOfDay, int minute) {
         int hour = hourOfDay;
         String amOrpm = "AM";
-        if (hour >= 12) {
-            amOrpm = "PM";
-            if (amOrpm.equals("PM")) {
-                hour = hour - 12;
-            }
-        }
         TextView textView = (TextView)findViewById(R.id.alarmTime);
-        textView.setText(hour + ":" + minute + " " + amOrpm);
+        textView.setText(hour + ":" + minute);
     }
 }
