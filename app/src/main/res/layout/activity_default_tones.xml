@@ -66,7 +66,7 @@
                 android:id="@+id/Tone4"
                 android:layout_width="match_parent"
                 android:layout_height="107dp"
-                android:text="Hi, Jeff Challen Here..." />
+                android:text="Hi, This is Jeff Challen..." />
 
         </LinearLayout>
 
