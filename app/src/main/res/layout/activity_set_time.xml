@@ -46,25 +46,24 @@
 
 
             <TextView
+                android:id="@+id/alarmTime"
                 android:layout_width="match_parent"
                 android:layout_height="75dp"
-                android:text="Your Alarms"
+                android:text="00:00"
                 android:textAlignment="center"
                 android:textSize="50dp"
                 android:visibility="visible"
                 tools:visibility="visible" />
 
-            <EditText
-                android:id="@+id/editText"
+
+            <Button
+                android:id="@+id/setButton"
                 android:layout_width="match_parent"
                 android:layout_height="75dp"
-                android:ems="10"
-                android:hint="00:00:00"
-                android:inputType="time"
-                android:textAlignment="center"
-                android:textSize="50dp"
-                android:visibility="visible"
-                tools:visibility="visible" />
+                android:text="Click to Set"
+                android:textAllCaps="false"
+                android:textSize="50dp" />
+
         </LinearLayout>
 
     </FrameLayout>
