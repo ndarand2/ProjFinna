@@ -28,7 +28,7 @@ public class FullscreenActivity extends AppCompatActivity {
      */
     public static int TONE = 0;
     /**AlarmTime.*/
-    public static String ALARMTIME = "00:00";
+    public static String ALARMTIME;
     /**Spotify thingy.*/
     public static String SPOTIFYSONG;
     /**
@@ -104,7 +104,8 @@ public class FullscreenActivity extends AppCompatActivity {
         mVisible = true;
         mControlsView = findViewById(R.id.fullscreen_content_controls);
         mContentView = findViewById(R.id.fullscreen_content);
-
+        android.content.SharedPreferences preferences = getSharedPreferences("sharedPrefs", 0);
+        ALARMTIME = preferences.getString("ALARMTIME", "00:00");
 
         // Set up the user interaction to manually show or hide the system UI.
         mContentView.setOnClickListener(new View.OnClickListener() {

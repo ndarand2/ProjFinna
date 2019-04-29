@@ -64,12 +64,15 @@ public class SetTime extends AppCompatActivity implements TimePickerDialog.OnTim
         if (hour > 12) {
             hour = hour % 12;
         }
-
+        android.content.SharedPreferences preferences = getSharedPreferences("sharedPrefs", 0);
+        android.content.SharedPreferences.Editor pref = preferences.edit();
         FullscreenActivity.ALARMTIME = hour + ":" + minute + " " + amOrpm;
+        pref.putString("ALARMTIME", FullscreenActivity.ALARMTIME);
         TextView textView = (TextView)findViewById(R.id.alarmTime);
         textView.setText(FullscreenActivity.getALARMTIME());
+        pref.commit();
     }
-
+//f
     public static String getCurrentTime() {
         return currentTime;
     }
