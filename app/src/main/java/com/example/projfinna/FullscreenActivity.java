@@ -120,6 +120,7 @@ public class FullscreenActivity extends AppCompatActivity {
         findViewById(R.id.ToneButton).setOnTouchListener(mDelayHideTouchListener);
         setUpButtons();
         //to push comment
+
     }
 
     private void setUpButtons() {
