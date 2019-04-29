@@ -28,7 +28,7 @@ public class FullscreenActivity extends AppCompatActivity {
      */
     public static int TONE = 0;
     /**AlarmTime.*/
-    public static String ALARMTIME = "00:00";
+    public static String ALARMTIME;
     /**Spotify thingy.*/
     public static String SPOTIFYSONG;
     /**

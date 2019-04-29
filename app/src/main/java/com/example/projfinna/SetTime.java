@@ -35,7 +35,7 @@ public class SetTime extends AppCompatActivity implements TimePickerDialog.OnTim
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new android.content.Intent(SetTime.this, FullscreenActivity.class ));
+                finish();
             }
         });
 
