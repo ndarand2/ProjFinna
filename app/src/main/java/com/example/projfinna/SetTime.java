@@ -59,18 +59,5 @@ public class SetTime extends AppCompatActivity implements TimePickerDialog.OnTim
         TextView textView = (TextView)findViewById(R.id.alarmTime);
         textView.setText(alarmTime);
     }
-
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-        TextView textView = findViewById(R.id.alarmTime);
-        textView.setText(alarmTime);
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        TextView textView = findViewById(R.id.alarmTime);
-        textView.setText(alarmTime);
-    }
+    
 }
