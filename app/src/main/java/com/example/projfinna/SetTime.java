@@ -24,16 +24,21 @@ import java.util.Calendar;
  */
 public class SetTime extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener {
 
-    public String alarmTime = "00:00";
+    public static String currentTime = Calendar.HOUR + ":" + Calendar.MINUTE;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_set_time);
-        android.content.SharedPreferences preferences = getSharedPreferences("sharedPrefs", 0);
-        alarmTime = preferences.getString("ALARMTIME","00:00");
-        TextView textView = findViewById(R.id.alarmTime);
-        textView.setText(alarmTime);
+
+        Button backButton = (Button) findViewById(R.id.backButton);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new android.content.Intent(SetTime.this, FullscreenActivity.class ));
+            }
+        });
+
         Button button = (Button) findViewById(R.id.setButton);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,6 +47,8 @@ public class SetTime extends AppCompatActivity implements TimePickerDialog.OnTim
                 timePicker.show(getSupportFragmentManager(), "time picker");
             }
         });
+        TextView textView = (TextView)findViewById(R.id.alarmTime);
+        textView.setText(FullscreenActivity.getALARMTIME());
     }
 
     @Override
@@ -58,21 +65,13 @@ public class SetTime extends AppCompatActivity implements TimePickerDialog.OnTim
             hour = hour % 12;
         }
 
-        alarmTime = hour + ":" + minute + " " + amOrpm;
+        FullscreenActivity.ALARMTIME = hour + ":" + minute + " " + amOrpm;
         TextView textView = (TextView)findViewById(R.id.alarmTime);
-        textView.setText(alarmTime);
-
-        android.content.SharedPreferences preferences = getSharedPreferences("sharedPrefs", 0);
-        android.content.SharedPreferences.Editor pref = preferences.edit();
-        pref.putString("ALARMTIME", alarmTime);
-        // Commit to storage
-        pref.commit();
+        textView.setText(FullscreenActivity.getALARMTIME());
     }
 
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-        TextView textView = findViewById(R.id.alarmTime);
-        textView.setText(alarmTime);
+    public static String getCurrentTime() {
+        return currentTime;
     }
+
 }

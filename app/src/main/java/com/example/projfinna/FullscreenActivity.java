@@ -1,6 +1,7 @@
 package com.example.projfinna;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -27,7 +28,7 @@ public class FullscreenActivity extends AppCompatActivity {
      */
     public static int TONE = 0;
     /**AlarmTime.*/
-    public static String ALARMTIME;
+    public static String ALARMTIME = "00:00";
     /**Spotify thingy.*/
     public static String SPOTIFYSONG;
     /**
@@ -119,6 +120,7 @@ public class FullscreenActivity extends AppCompatActivity {
         findViewById(R.id.SpotifyButton).setOnTouchListener(mDelayHideTouchListener);
         findViewById(R.id.ToneButton).setOnTouchListener(mDelayHideTouchListener);
         setUpButtons();
+        startService(new Intent(this, BackgroundBS.class));
         //to push comment
     }
 
@@ -222,6 +224,10 @@ public class FullscreenActivity extends AppCompatActivity {
     private void delayedHide(int delayMillis) {
         mHideHandler.removeCallbacks(mHideRunnable);
         mHideHandler.postDelayed(mHideRunnable, delayMillis);
+    }
+
+    public static String getALARMTIME() {
+        return ALARMTIME;
     }
 
 }

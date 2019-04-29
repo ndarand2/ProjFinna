@@ -64,6 +64,13 @@
                 android:textAllCaps="false"
                 android:textSize="50dp" />
 
+            <Button
+                android:id="@+id/backButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="25dp"
+                android:text="Back" />
+
         </LinearLayout>
 
     </FrameLayout>
