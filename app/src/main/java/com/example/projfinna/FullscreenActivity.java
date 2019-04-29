@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.AnalogClock;
 import android.widget.TextClock;
 import android.media.MediaPlayer;
+import android.widget.TextView;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -222,4 +223,5 @@ public class FullscreenActivity extends AppCompatActivity {
         mHideHandler.removeCallbacks(mHideRunnable);
         mHideHandler.postDelayed(mHideRunnable, delayMillis);
     }
+
 }

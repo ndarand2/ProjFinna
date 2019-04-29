@@ -1,6 +1,7 @@
 package com.example.projfinna;
 
 import android.annotation.SuppressLint;
+import android.content.SharedPreferences;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.ActionBar;
@@ -23,7 +24,7 @@ import java.util.Calendar;
  */
 public class SetTime extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener {
 
-    public String alarmTime = " ";
+    public String alarmTime = "00:00";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -53,9 +54,16 @@ public class SetTime extends AppCompatActivity implements TimePickerDialog.OnTim
         if (hour > 12) {
             hour = hour % 12;
         }
+
         alarmTime = hour + ":" + minute + " " + amOrpm;
         TextView textView = (TextView)findViewById(R.id.alarmTime);
         textView.setText(alarmTime);
     }
 
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        TextView textView = findViewById(R.id.alarmTime);
+        textView.setText(alarmTime);
+    }
 }
