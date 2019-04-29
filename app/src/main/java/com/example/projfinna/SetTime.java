@@ -30,7 +30,10 @@ public class SetTime extends AppCompatActivity implements TimePickerDialog.OnTim
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_set_time);
-
+        android.content.SharedPreferences preferences = getSharedPreferences("sharedPrefs", 0);
+        alarmTime = preferences.getString("ALARMTIME","00:00");
+        TextView textView = findViewById(R.id.alarmTime);
+        textView.setText(alarmTime);
         Button button = (Button) findViewById(R.id.setButton);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,6 +61,12 @@ public class SetTime extends AppCompatActivity implements TimePickerDialog.OnTim
         alarmTime = hour + ":" + minute + " " + amOrpm;
         TextView textView = (TextView)findViewById(R.id.alarmTime);
         textView.setText(alarmTime);
+
+        android.content.SharedPreferences preferences = getSharedPreferences("sharedPrefs", 0);
+        android.content.SharedPreferences.Editor pref = preferences.edit();
+        pref.putString("ALARMTIME", alarmTime);
+        // Commit to storage
+        pref.commit();
     }
 
     @Override
