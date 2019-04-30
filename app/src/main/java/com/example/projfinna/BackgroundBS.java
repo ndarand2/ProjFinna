@@ -90,6 +90,3 @@ public class BackgroundBS extends Service {
         return super.onStartCommand(intent, flags, startId);
     }
 }
-
-
-
