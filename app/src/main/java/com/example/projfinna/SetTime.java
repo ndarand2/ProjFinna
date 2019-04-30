@@ -35,7 +35,7 @@ public class SetTime extends AppCompatActivity implements TimePickerDialog.OnTim
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new android.content.Intent(SetTime.this, FullscreenActivity.class ));
+                finish();
             }
         });
 
@@ -53,6 +53,7 @@ public class SetTime extends AppCompatActivity implements TimePickerDialog.OnTim
 
     @Override
     public void onTimeSet(android.widget.TimePicker view, int hourOfDay, int minute) {
+        String stringMinute = "" + minute;
         String amOrpm = "AM";
         if (hourOfDay >= 12) {
             amOrpm = "PM";
@@ -64,9 +65,12 @@ public class SetTime extends AppCompatActivity implements TimePickerDialog.OnTim
         if (hour > 12) {
             hour = hour % 12;
         }
+        if (minute < 10) {
+            stringMinute = "0" + minute;
+        }
         android.content.SharedPreferences preferences = getSharedPreferences("sharedPrefs", 0);
         android.content.SharedPreferences.Editor pref = preferences.edit();
-        FullscreenActivity.ALARMTIME = hour + ":" + minute + " " + amOrpm;
+        FullscreenActivity.ALARMTIME = hour + ":" + stringMinute + " " + amOrpm;
         pref.putString("ALARMTIME", FullscreenActivity.ALARMTIME);
         TextView textView = (TextView)findViewById(R.id.alarmTime);
         textView.setText(FullscreenActivity.getALARMTIME());

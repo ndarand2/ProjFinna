@@ -73,6 +73,15 @@
                 android:layout_height="84dp"
                 android:text="default tones" />
 
+            <TextView
+                android:id="@+id/Notification"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Notification kinda works"
+                android:textAlignment="center"
+                android:textSize="25dp"
+                android:visibility="invisible" />
+
         </LinearLayout>
     </FrameLayout>
 

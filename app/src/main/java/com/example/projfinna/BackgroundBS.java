@@ -64,21 +64,29 @@ public class BackgroundBS extends Service {
         return null;
     }
 
+    public boolean bool = true;
+
     public String textTitle = "Alarm";
     public String CHANNEL_ID = "Alarm";
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         Log.d("one", "Notification");
+        /*
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setSmallIcon(R.drawable.ic_launcher_background)
                 .setContentTitle(textTitle)
+                .setContentText(textTitle)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
         notificationManager.notify(1, builder.build());
+        **/
+        /*
+        while (bool)
+        if (SetTime.getCurrentTime().equals(FullscreenActivity.getALARMTIME())) {
+            bool = false;
+        }
+        **/
         return super.onStartCommand(intent, flags, startId);
     }
 }
-
-
-
