@@ -104,7 +104,8 @@ public class FullscreenActivity extends AppCompatActivity {
         mVisible = true;
         mControlsView = findViewById(R.id.fullscreen_content_controls);
         mContentView = findViewById(R.id.fullscreen_content);
-
+        android.content.SharedPreferences preferences = getSharedPreferences("sharedPrefs", 0);
+        ALARMTIME = preferences.getString("ALARMTIME", "00:00");
 
         // Set up the user interaction to manually show or hide the system UI.
         mContentView.setOnClickListener(new View.OnClickListener() {
