@@ -201,7 +201,7 @@ public class FullscreenActivity extends AppCompatActivity {
         mControlsView.setVisibility(View.GONE);
         mVisible = false;
 
-        // Schedule a runnable to remove the status and navigation bar after a delay
+        // Schedule a runnable to remove the status and navigation bar after a delay.
         mHideHandler.removeCallbacks(mShowPart2Runnable);
         mHideHandler.postDelayed(mHidePart2Runnable, UI_ANIMATION_DELAY);
     }
