@@ -2,6 +2,7 @@ package com.example.projfinna;
 
 import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.ActionBar;
@@ -14,6 +15,12 @@ import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.widget.Button;
 import android.widget.TextView;
+import android.app.AlarmManager;
+import android.content.Intent;
+import android.app.PendingIntent;
+import android.os.Bundle;
+import android.util.Log;
+import android.widget.TimePicker;
 
 import java.util.Calendar;
 
@@ -25,7 +32,9 @@ import java.util.Calendar;
 public class SetTime extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener {
 
     public static String currentTime = Calendar.HOUR + ":" + Calendar.MINUTE;
-
+    private PendingIntent pendingIntent;
+    private AlarmManager manage;
+    private Calendar calendar;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,6 +84,21 @@ public class SetTime extends AppCompatActivity implements TimePickerDialog.OnTim
         TextView textView = (TextView)findViewById(R.id.alarmTime);
         textView.setText(FullscreenActivity.getALARMTIME());
         pref.commit();
+        if (FullscreenActivity.TONE <= 1) {
+            FullscreenActivity.alarm = MediaPlayer.create(getBaseContext(), R.raw.tycho);
+        } else if (FullscreenActivity.TONE <= 2) {
+            FullscreenActivity.alarm = MediaPlayer.create(getBaseContext(), R.raw.train);
+        } else if (FullscreenActivity.TONE <= 3) {
+            FullscreenActivity.alarm = MediaPlayer.create(getBaseContext(), R.raw.tornado);
+        } else {
+            FullscreenActivity.alarm = MediaPlayer.create(getBaseContext(), R.raw.jeff);
+        }
+        /** new stuff */
+        if (true) {
+            Intent intent1 = new Intent(SetTime.this, AlarmChecker.class);
+            pendingIntent = PendingIntent.getBroadcast(SetTime.this, 0, intent1, 0);
+            manage.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
+        }
     }
 //f
     public static String getCurrentTime() {

@@ -31,6 +31,7 @@ public class FullscreenActivity extends AppCompatActivity {
     public static String ALARMTIME;
     /**Spotify thingy.*/
     public static String SPOTIFYSONG;
+    public static MediaPlayer alarm;
     /**
      * If {@link #AUTO_HIDE} is set, the number of milliseconds to wait after
      * user interaction before hiding the system UI.
