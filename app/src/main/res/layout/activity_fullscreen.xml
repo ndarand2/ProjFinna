@@ -62,12 +62,6 @@
                 android:layout_height="300dp" />
 
             <Button
-                android:id="@+id/SpotifyButton"
-                android:layout_width="match_parent"
-                android:layout_height="86dp"
-                android:text="Login to Spotify" />
-
-            <Button
                 android:id="@+id/ToneButton"
                 android:layout_width="match_parent"
                 android:layout_height="84dp"

@@ -119,7 +119,6 @@ public class FullscreenActivity extends AppCompatActivity {
         // Upon interacting with UI controls, delay any scheduled hide()
         // operations to prevent the jarring behavior of controls going away
         // while interacting with the UI.
-        findViewById(R.id.SpotifyButton).setOnTouchListener(mDelayHideTouchListener);
         findViewById(R.id.ToneButton).setOnTouchListener(mDelayHideTouchListener);
         setUpButtons();
         startService(new Intent(this, BackgroundBS.class));
@@ -127,13 +126,6 @@ public class FullscreenActivity extends AppCompatActivity {
     }
 
     private void setUpButtons() {
-        android.widget.Button spotifyBut = findViewById(R.id.SpotifyButton);
-        spotifyBut.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //startActivity(new Intent(FullscreenActivity.this, SPOTIFY API CALLS))
-            }
-        });
         android.widget.Button toneBut = findViewById(R.id.ToneButton);
         toneBut.setOnClickListener(new View.OnClickListener() {
             @Override
