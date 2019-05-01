@@ -30,22 +30,24 @@
         android:layout_margin="@dimen/fab_margin"
         app:srcCompat="@android:drawable/ic_dialog_email" />
 
-    <android.support.constraint.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginBottom="16dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <Button
-            android:id="@+id/KillAlarm"
-            android:layout_width="211dp"
-            android:layout_height="141dp"
-            android:layout_marginStart="100dp"
-            android:layout_marginEnd="100dp"
-            android:layout_marginBottom="137dp"
-            android:text="Press To Turn Off"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:id="@+id/fakeButton"
+            android:layout_width="179dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="116dp"
+            android:layout_marginTop="141dp"
+            android:layout_marginEnd="116dp"
+            android:text="SNOOZE"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/TimeShown"
@@ -61,16 +63,23 @@
             tools:textSize="36sp" />
 
         <Button
-            android:id="@+id/fakeButton"
-            android:layout_width="179dp"
-            android:layout_height="100dp"
-            android:layout_marginStart="116dp"
-            android:layout_marginTop="141dp"
-            android:layout_marginEnd="116dp"
-            android:text="SNOOZE"
+            android:id="@+id/KillAlarm"
+            android:layout_width="211dp"
+            android:layout_height="141dp"
+            android:layout_marginStart="100dp"
+            android:layout_marginEnd="100dp"
+            android:layout_marginBottom="137dp"
+            android:text="Press To Turn Off"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent" />
+    </LinearLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
     </android.support.constraint.ConstraintLayout>
 
 </android.support.design.widget.CoordinatorLayout>

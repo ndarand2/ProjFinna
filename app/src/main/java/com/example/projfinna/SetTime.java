@@ -91,15 +91,6 @@ public class SetTime extends AppCompatActivity implements TimePickerDialog.OnTim
         TextView textView = (TextView)findViewById(R.id.alarmTime);
         textView.setText(FullscreenActivity.getALARMTIME());
         pref.commit();
-        if (FullscreenActivity.TONE <= 1) {
-            FullscreenActivity.alarm = MediaPlayer.create(getBaseContext(), R.raw.tycho);
-        } else if (FullscreenActivity.TONE <= 2) {
-            FullscreenActivity.alarm = MediaPlayer.create(getBaseContext(), R.raw.train);
-        } else if (FullscreenActivity.TONE <= 3) {
-            FullscreenActivity.alarm = MediaPlayer.create(getBaseContext(), R.raw.tornado);
-        } else {
-            FullscreenActivity.alarm = MediaPlayer.create(getBaseContext(), R.raw.jeff);
-        }
         /** new stuff */
         AlarmChecker x = new AlarmChecker();
         x.alarmTrigger();

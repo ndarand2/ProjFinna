@@ -1,6 +1,7 @@
 package com.example.projfinna;
 
 import android.annotation.SuppressLint;
+import android.media.MediaPlayer;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -121,6 +122,7 @@ public class DefaultTones extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 FullscreenActivity.TONE = 1;
+                FullscreenActivity.alarm = MediaPlayer.create(getBaseContext(), R.raw.tycho);
                 pref.putInt("ALARMTYPE", 1);
                 finish();
             }
@@ -130,6 +132,7 @@ public class DefaultTones extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 FullscreenActivity.TONE = 2;
+                FullscreenActivity.alarm = MediaPlayer.create(getBaseContext(), R.raw.train);
                 pref.putInt("ALARMTYPE", 2);
                 finish();
             }
@@ -139,6 +142,7 @@ public class DefaultTones extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 FullscreenActivity.TONE = 3;
+                FullscreenActivity.alarm = MediaPlayer.create(getBaseContext(), R.raw.tornado);
                 pref.putInt("ALARMTYPE", 3);
                 finish();
             }
@@ -148,7 +152,9 @@ public class DefaultTones extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 FullscreenActivity.TONE = 4;
+                FullscreenActivity.alarm = MediaPlayer.create(getBaseContext(), R.raw.jeff);
                 pref.putInt("ALARMTYPE", 4);
+                System.out.println("Jeff trigger");
                 finish();
             }
         });
