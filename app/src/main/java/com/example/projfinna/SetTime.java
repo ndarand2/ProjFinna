@@ -20,7 +20,6 @@ import android.content.Intent;
 import android.app.PendingIntent;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.TimePicker;
 
 import java.util.Calendar;
 
@@ -35,11 +34,15 @@ public class SetTime extends AppCompatActivity implements TimePickerDialog.OnTim
     private PendingIntent pendingIntent;
     private AlarmManager manage;
     private Calendar calendar;
+    public static int hour;
+    public static int min;
+    public final static String TAG = "test passed";
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_set_time);
-
+        calendar = Calendar.getInstance();
+        manage = (AlarmManager) getSystemService(ALARM_SERVICE);
         Button backButton = (Button) findViewById(R.id.backButton);
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,11 +60,15 @@ public class SetTime extends AppCompatActivity implements TimePickerDialog.OnTim
             }
         });
         TextView textView = (TextView)findViewById(R.id.alarmTime);
+        System.out.println("test 3");
         textView.setText(FullscreenActivity.getALARMTIME());
+        Log.d(TAG, "onCreate test");
     }
 
     @Override
     public void onTimeSet(android.widget.TimePicker view, int hourOfDay, int minute) {
+        hour = hourOfDay;
+        min = minute;
         String stringMinute = "" + minute;
         String amOrpm = "AM";
         if (hourOfDay >= 12) {
@@ -95,9 +102,12 @@ public class SetTime extends AppCompatActivity implements TimePickerDialog.OnTim
         }
         /** new stuff */
         if (true) {
-            Intent intent1 = new Intent(SetTime.this, AlarmChecker.class);
-            pendingIntent = PendingIntent.getBroadcast(SetTime.this, 0, intent1, 0);
-            manage.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
+            Intent intent1 = new Intent(SetTime.this, AlarmNoise.class);
+            pendingIntent = PendingIntent.getActivity(SetTime.this, 0, intent1, 0);
+            System.out.println("test 2");
+            Log.d(TAG, "settime test");
+            manage.set(AlarmManager.RTC, calendar.getTimeInMillis(), pendingIntent);
+
         }
     }
 //f
