@@ -19,7 +19,7 @@ public class DefaultTones extends AppCompatActivity {
      * {@link #AUTO_HIDE_DELAY_MILLIS} milliseconds.
      */
     private static final boolean AUTO_HIDE = true;
-
+    public static android.content.SharedPreferences.Editor pref;
     /**
      * If {@link #AUTO_HIDE} is set, the number of milliseconds to wait after
      * user interaction before hiding the system UI.
@@ -114,11 +114,14 @@ public class DefaultTones extends AppCompatActivity {
     }
 
     private void setUpButtons() {
+        android.content.SharedPreferences preferences = getSharedPreferences("sharedPrefs", 0);
+        pref = preferences.edit();
         android.widget.Button tone1 = findViewById(R.id.Tone1);
         tone1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FullscreenActivity.TONE = 1;
+                pref.putInt("ALARMTYPE", 1);
                 finish();
             }
         });
@@ -127,6 +130,7 @@ public class DefaultTones extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 FullscreenActivity.TONE = 2;
+                pref.putInt("ALARMTYPE", 2);
                 finish();
             }
         });
@@ -135,6 +139,7 @@ public class DefaultTones extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 FullscreenActivity.TONE = 3;
+                pref.putInt("ALARMTYPE", 3);
                 finish();
             }
         });
@@ -143,9 +148,11 @@ public class DefaultTones extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 FullscreenActivity.TONE = 4;
+                pref.putInt("ALARMTYPE", 4);
                 finish();
             }
         });
+        pref.commit();
     }
 
     @Override

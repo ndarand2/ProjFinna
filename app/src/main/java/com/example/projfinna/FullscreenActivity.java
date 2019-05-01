@@ -26,7 +26,7 @@ public class FullscreenActivity extends AppCompatActivity {
     /**current tone
      * 0 if its spotify.
      */
-    public static int TONE = 0;
+    public static int TONE;
     /**AlarmTime.*/
     public static String ALARMTIME;
     /**Spotify thingy.*/
@@ -155,10 +155,6 @@ public class FullscreenActivity extends AppCompatActivity {
                 startActivity(new android.content.Intent(FullscreenActivity.this, SetTime.class ));
             }
         });
-        MediaPlayer mediaPlayer1 = MediaPlayer.create(getBaseContext(), R.raw.tycho);
-        MediaPlayer mediaPlayer2 = MediaPlayer.create(getBaseContext(), R.raw.tornado);
-        MediaPlayer mediaPlayer3 = MediaPlayer.create(getBaseContext(), R.raw.train);
-        MediaPlayer mediaPlayer4 = MediaPlayer.create(getBaseContext(), R.raw.jeff);
         //mediaPlayer1.start();
         //comment bs2.
     }
@@ -174,6 +170,25 @@ public class FullscreenActivity extends AppCompatActivity {
         }
         // Commit to storage
         pref.commit();
+    }
+    public void onResume() {
+        super.onResume();
+        if (alarm != null && alarm.isPlaying()) {
+            startActivity(new android.content.Intent(FullscreenActivity.this, AlarmNoise.class ));
+        }
+        android.content.SharedPreferences preferences = getSharedPreferences("sharedPrefs", 0);
+        TONE = preferences.getInt("ALARMTYPE", 0);
+        ALARMTIME = preferences.getString("ALARMTIME", "00:00");
+    }
+    public void onStart() {
+        super.onStart();
+        super.onResume();
+        if (alarm != null && alarm.isPlaying()) {
+            startActivity(new android.content.Intent(FullscreenActivity.this, AlarmNoise.class ));
+        }
+        android.content.SharedPreferences preferences = getSharedPreferences("sharedPrefs", 0);
+        TONE = preferences.getInt("ALARMTYPE", 0);
+        ALARMTIME = preferences.getString("ALARMTIME", "00:00");
     }
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {

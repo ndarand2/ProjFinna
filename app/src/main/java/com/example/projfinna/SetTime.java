@@ -33,7 +33,7 @@ public class SetTime extends AppCompatActivity implements TimePickerDialog.OnTim
     public static String currentTime = Calendar.HOUR + ":" + Calendar.MINUTE;
     private PendingIntent pendingIntent;
     private AlarmManager manage;
-    private Calendar calendar;
+    public static Calendar calendar;
     public static int hour;
     public static int min;
     public final static String TAG = "test passed";
@@ -101,6 +101,9 @@ public class SetTime extends AppCompatActivity implements TimePickerDialog.OnTim
             FullscreenActivity.alarm = MediaPlayer.create(getBaseContext(), R.raw.jeff);
         }
         /** new stuff */
+        AlarmChecker x = new AlarmChecker();
+        x.alarmTrigger();
+        /*
         if (true) {
             Intent intent1 = new Intent(SetTime.this, AlarmNoise.class);
             pendingIntent = PendingIntent.getActivity(SetTime.this, 0, intent1, 0);
@@ -108,6 +111,19 @@ public class SetTime extends AppCompatActivity implements TimePickerDialog.OnTim
             Log.d(TAG, "settime test");
             manage.set(AlarmManager.RTC, calendar.getTimeInMillis(), pendingIntent);
 
+        }*/
+    }
+    public void onResume() {
+        super.onResume();
+        if (FullscreenActivity.alarm != null && FullscreenActivity.alarm.isPlaying()) {
+            startActivity(new android.content.Intent(SetTime.this, AlarmNoise.class ));
+        }
+    }
+    public void onStart() {
+        super.onStart();
+        super.onResume();
+        if (FullscreenActivity.alarm != null && FullscreenActivity.alarm.isPlaying()) {
+            startActivity(new android.content.Intent(SetTime.this, AlarmNoise.class ));
         }
     }
 //f
